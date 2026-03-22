@@ -13,7 +13,8 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-[100] group flex items-center gap-3"
-      aria-label="Contact on WhatsApp"
+      aria-label="Chat with Uma Offset Printers on WhatsApp"
+      title="Uma Offset Printers - WhatsApp Order Stream"
     >
       {/* Tooltip Label */}
       <span className="bg-primary text-white text-[10px] font-black uppercase tracking-widest py-2 px-4 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300 pointer-events-none italic border-l-4 border-cmyk-cyan">
