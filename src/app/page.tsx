@@ -9,7 +9,6 @@ export default function Home() {
         <div className="flex-1 bg-cmyk-magenta"></div>
         <div className="flex-1 bg-cmyk-yellow"></div>
         <div className="flex-1 bg-cmyk-key"></div>
-        <div className="flex-1 bg-pantone"></div>
         <div className="flex-1 bg-white border-l border-gray-100 flex items-center justify-center text-[6px] font-mono text-gray-400">REGISTRATION_MARK_V1</div>
       </div>
 
@@ -26,9 +25,9 @@ export default function Home() {
               <span className="text-primary text-2xl font-black tracking-tighter uppercase">Uma Offset <span className="text-cmyk-cyan">Printers</span></span>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
-              <Link href="/" className="text-primary font-medium hover:text-secondary transition">Home</Link>
-              <Link href="#services" className="text-gray-600 font-medium hover:text-secondary transition">Services</Link>
-              <Link href="#industries" className="text-gray-600 font-medium hover:text-secondary transition">Industries</Link>
+              <Link href="/" className="text-primary font-medium hover:text-cmyk-cyan transition">Home</Link>
+              <Link href="#services" className="text-gray-600 font-medium hover:text-cmyk-cyan transition">Services</Link>
+              <Link href="#industries" className="text-gray-600 font-medium hover:text-cmyk-cyan transition">Industries</Link>
               <Link href="/quote" className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">Get Quote</Link>
             </div>
           </div>
@@ -36,35 +35,39 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-32 overflow-hidden bg-primary-dark">
-        {/* Macro Orange Slice Background with Blur */}
+      <section className="relative pt-48 pb-32 overflow-hidden bg-black">
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&q=80&w=2070" 
-            alt="Macro orange slice - Color Precision"
-            className="w-full h-full object-cover opacity-50 scale-110 blur-sm"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/70 to-transparent"></div>
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover opacity-60"
+          >
+            <source src="/videos/background.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-pantone/10 border border-pantone/20 text-pantone text-sm font-bold tracking-widest uppercase">
-              Precision 4-Color CMYK & Pantone
+            <div className="inline-block px-4 py-1.5 mb-6 rounded-none bg-cmyk-cyan/20 border border-cmyk-cyan/30 text-cmyk-cyan text-sm font-bold tracking-widest uppercase italic">
+              Industrial Scale // Precision CMYK
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white uppercase italic tracking-tighter">
-              Industrial Offset <span className="text-pantone drop-shadow-sm">Color Perfected.</span>
+              Precision Offset <span className="text-cmyk-cyan drop-shadow-[0_0_15px_rgba(0,174,239,0.3)]">In Motion.</span>
             </h1>
-            <p className="text-xl text-blue-100 mb-10 max-w-2xl leading-relaxed">
-              Cost-effective high-volume solutions for corporate clients and publishers. 
-              Precision CMYK & Pantone (PMS) spot color matching with industrial quick turnarounds.
+            <p className="text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed font-medium">
+              High-volume industrial solutions for corporate clients and publishers. 
+              Uncompromising 4-color process accuracy with world-class industrial finishing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/quote" className="inline-block bg-pantone hover:bg-pantone-dark text-white text-center font-black uppercase tracking-widest py-4 px-10 rounded-none transition-all transform hover:scale-105 shadow-lg shadow-pantone/20">
-                Get CMYK Quote
+              <Link href="/quote" className="inline-block bg-cmyk-cyan hover:bg-cmyk-cyan/90 text-white text-center font-black uppercase tracking-widest py-4 px-10 rounded-none transition-all transform hover:scale-105 shadow-lg shadow-cmyk-cyan/20">
+                Get Precision Quote
               </Link>
-              <Link href="#portfolio" className="inline-block border-2 border-white/30 hover:bg-white/10 text-white text-center font-bold py-4 px-10 rounded-lg transition">
-                View Portfolio
+              <Link href="#portfolio" className="inline-block border-2 border-white/30 hover:bg-white/10 text-white text-center font-bold py-4 px-10 rounded-none transition uppercase tracking-widest text-sm italic">
+                View Press Portfolio
               </Link>
             </div>
           </div>
@@ -356,7 +359,6 @@ export default function Home() {
           <div className="flex-1 bg-cmyk-magenta opacity-50"></div>
           <div className="flex-1 bg-cmyk-yellow opacity-50"></div>
           <div className="flex-1 bg-cmyk-key opacity-50"></div>
-          <div className="flex-1 bg-pantone opacity-50"></div>
         </div>
       </footer>
 
