@@ -2,15 +2,30 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-sans bg-white">
+      {/* Printer's Color Control Bar */}
+      <div className="h-2 w-full flex">
+        <div className="flex-1 bg-cmyk-cyan"></div>
+        <div className="flex-1 bg-cmyk-magenta"></div>
+        <div className="flex-1 bg-cmyk-yellow"></div>
+        <div className="flex-1 bg-cmyk-key"></div>
+        <div className="flex-1 bg-pantone"></div>
+        <div className="flex-1 bg-white border-l border-gray-100 flex items-center justify-center text-[6px] font-mono text-gray-400">REGISTRATION_MARK_V1</div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+      <nav className="fixed top-2 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <div className="flex-shrink-0 flex items-center">
-              <span className="text-primary text-2xl font-bold tracking-tighter uppercase">Uma Offset <span className="text-secondary">Printers</span></span>
+            <div className="flex-shrink-0 flex items-center gap-3">
+              <div className="flex -space-x-2">
+                <div className="w-5 h-5 rounded-full bg-cmyk-cyan opacity-80 shadow-sm"></div>
+                <div className="w-5 h-5 rounded-full bg-cmyk-magenta opacity-80 shadow-sm"></div>
+                <div className="w-5 h-5 rounded-full bg-cmyk-yellow opacity-80 shadow-sm"></div>
+              </div>
+              <span className="text-primary text-2xl font-black tracking-tighter uppercase">Uma Offset <span className="text-cmyk-cyan">Printers</span></span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-8 items-center">
               <Link href="/" className="text-primary font-medium hover:text-secondary transition">Home</Link>
               <Link href="#services" className="text-gray-600 font-medium hover:text-secondary transition">Services</Link>
               <Link href="#industries" className="text-gray-600 font-medium hover:text-secondary transition">Industries</Link>
@@ -34,19 +49,19 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-sm font-bold tracking-widest uppercase">
-              Vibrant CMYK Precision
+            <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-pantone/10 border border-pantone/20 text-pantone text-sm font-bold tracking-widest uppercase">
+              Precision 4-Color CMYK & Pantone
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white">
-              Precision Offset Printing at <span className="text-secondary text-glow">Global Scale.</span>
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white uppercase italic tracking-tighter">
+              Industrial Offset <span className="text-pantone drop-shadow-sm">Color Perfected.</span>
             </h1>
             <p className="text-xl text-blue-100 mb-10 max-w-2xl leading-relaxed">
               Cost-effective high-volume solutions for corporate clients and publishers. 
-              Uncompromising CMYK & Pantone color matching with quick turnarounds at Uma Offset Printers.
+              Precision CMYK & Pantone (PMS) spot color matching with industrial quick turnarounds.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/quote" className="inline-block bg-secondary hover:bg-secondary-dark text-white text-center font-bold py-4 px-10 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-secondary/20">
-                Instant Quote Request
+              <Link href="/quote" className="inline-block bg-pantone hover:bg-pantone-dark text-white text-center font-black uppercase tracking-widest py-4 px-10 rounded-none transition-all transform hover:scale-105 shadow-lg shadow-pantone/20">
+                Get CMYK Quote
               </Link>
               <Link href="#portfolio" className="inline-block border-2 border-white/30 hover:bg-white/10 text-white text-center font-bold py-4 px-10 rounded-lg transition">
                 View Portfolio
@@ -68,39 +83,43 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border-t-4 border-secondary group">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition">
+            {/* Service 1 - Cyan */}
+            <div className="bg-white p-8 rounded-none shadow-sm hover:shadow-xl transition-all border-t-8 border-cmyk-cyan group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-2 opacity-5 text-cmyk-cyan font-black text-6xl select-none">C</div>
+              <div className="w-12 h-12 bg-cmyk-cyan/10 rounded-none flex items-center justify-center mb-6 text-cmyk-cyan group-hover:bg-cmyk-cyan group-hover:text-white transition">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Embossing & Debossing</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4 italic">Embossing & Debossing</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">
                 Add tactile depth to your luxury packaging and corporate stationary with precision mechanical die-pressing.
               </p>
             </div>
 
-            {/* Service 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border-t-4 border-primary group">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition">
+            {/* Service 2 - Magenta */}
+            <div className="bg-white p-8 rounded-none shadow-sm hover:shadow-xl transition-all border-t-8 border-cmyk-magenta group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-2 opacity-5 text-cmyk-magenta font-black text-6xl select-none">M</div>
+              <div className="w-12 h-12 bg-cmyk-magenta/10 rounded-none flex items-center justify-center mb-6 text-cmyk-magenta group-hover:bg-cmyk-magenta group-hover:text-white transition">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Precision Die-Cutting</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4 italic">Precision Die-Cutting</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">
                 Custom-shaped products and packaging designed for high-speed assembly and structural integrity.
               </p>
             </div>
 
-            {/* Service 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border-t-4 border-secondary group">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            {/* Service 3 - Yellow */}
+            <div className="bg-white p-8 rounded-none shadow-sm hover:shadow-xl transition-all border-t-8 border-cmyk-yellow group relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-2 opacity-10 text-cmyk-yellow font-black text-6xl select-none">Y</div>
+              <div className="w-12 h-12 bg-cmyk-yellow/10 rounded-none flex items-center justify-center mb-6 text-cmyk-yellow group-hover:bg-cmyk-yellow group-hover:text-black transition">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>  
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Spot UV & Foil</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4 italic">Spot UV & Foil</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">
                 High-gloss selective coating and metallic foil stamping for premium brochures and product labels.
               </p>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -139,17 +158,17 @@ export default function Home() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Publishing", desc: "High-volume book & magazine production.", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
-              { name: "Corporate", desc: "Premium annual reports & marketing kits.", icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
-              { name: "FMCG", desc: "Durable packaging & high-impact labels.", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
-              { name: "Pharmaceutical", desc: "Compliant leaflets & precision boxes.", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" }
+              { name: "Publishing", desc: "High-volume book & magazine production.", color: "border-cmyk-cyan", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+              { name: "Corporate", desc: "Premium annual reports & marketing kits.", color: "border-cmyk-magenta", icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+              { name: "FMCG", desc: "Durable packaging & high-impact labels.", color: "border-cmyk-yellow", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
+              { name: "Pharmaceutical", desc: "Compliant leaflets & precision boxes.", color: "border-cmyk-key", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" }
             ].map((industry, i) => (
-              <div key={i} className="group p-8 border border-gray-100 rounded-2xl hover:bg-primary hover:border-primary transition-all duration-300">
-                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-white/20 group-hover:text-white transition">
+              <div key={i} className={`group p-8 border-2 border-gray-100 rounded-none hover:${industry.color} hover:bg-gray-50 transition-all duration-300`}>
+                <div className="w-12 h-12 bg-gray-100 rounded-none flex items-center justify-center mb-6 text-gray-400 group-hover:text-primary transition">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={industry.icon}></path></svg>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white">{industry.name}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed group-hover:text-blue-100">{industry.desc}</p>
+                <h3 className="text-xl font-black text-primary mb-3 uppercase tracking-tighter italic">{industry.name}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed font-medium">{industry.desc}</p>
               </div>
             ))}
           </div>
@@ -320,12 +339,27 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-primary text-xl font-bold mb-4 md:mb-0 uppercase">Uma Offset <span className="text-secondary">Printers</span></div>
-          <p className="text-gray-500 text-sm">© 2026 Uma Offset Printers. All Rights Reserved.</p>
+      <footer className="bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center gap-3 mb-4 md:mb-0">
+            <div className="flex -space-x-1">
+              <div className="w-3 h-3 rounded-full bg-cmyk-cyan"></div>
+              <div className="w-3 h-3 rounded-full bg-cmyk-magenta"></div>
+              <div className="w-3 h-3 rounded-full bg-cmyk-yellow"></div>
+            </div>
+            <div className="text-primary text-xl font-black uppercase tracking-tighter">Uma Offset <span className="text-cmyk-cyan">Printers</span></div> 
+          </div>
+          <p className="text-gray-500 text-sm font-mono tracking-tighter">© 2026 Uma Offset Printers // 4-COLOR_PROCESS_VERIFIED</p>
+        </div>
+        <div className="h-4 w-full flex">
+          <div className="flex-1 bg-cmyk-cyan opacity-50"></div>
+          <div className="flex-1 bg-cmyk-magenta opacity-50"></div>
+          <div className="flex-1 bg-cmyk-yellow opacity-50"></div>
+          <div className="flex-1 bg-cmyk-key opacity-50"></div>
+          <div className="flex-1 bg-pantone opacity-50"></div>
         </div>
       </footer>
+
     </div>
   );
 }

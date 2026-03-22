@@ -7,6 +7,7 @@ export default function QuotePage() {
   const [gsm, setGsm] = useState(100);
   const [quantity, setQuantity] = useState(1000);
   const [finish, setFinish] = useState("gloss");
+  const [pantone, setPantone] = useState(false);
   const [estimate, setEstimate] = useState(0);
 
   // Form State
@@ -62,22 +63,39 @@ export default function QuotePage() {
     const basePrice = 0.05; // Base price per sheet
     const gsmMultiplier = gsm / 100;
     const finishMultiplier = finish === "matte" ? 1.15 : 1.0;
+    const pantoneMultiplier = pantone ? 1.25 : 1.0; // 25% surcharge for spot colors
     
     // Bulk discount logic
     let bulkDiscount = 1.0;
     if (quantity >= 10000) bulkDiscount = 0.7;
     else if (quantity >= 5000) bulkDiscount = 0.85;
 
-    const total = (quantity * basePrice * gsmMultiplier * finishMultiplier * bulkDiscount);
+    const total = (quantity * basePrice * gsmMultiplier * finishMultiplier * pantoneMultiplier * bulkDiscount);
     setEstimate(total);
-  }, [gsm, quantity, finish]);
+  }, [gsm, quantity, finish, pantone]);
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Printer's Color Control Bar */}
+      <div className="h-2 w-full flex">
+        <div className="flex-1 bg-cmyk-cyan"></div>
+        <div className="flex-1 bg-cmyk-magenta"></div>
+        <div className="flex-1 bg-cmyk-yellow"></div>
+        <div className="flex-1 bg-cmyk-key"></div>
+        <div className="flex-1 bg-pantone"></div>
+      </div>
+
+      <nav className="fixed top-2 w-full z-50 bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-          <Link href="/" className="text-primary text-2xl font-bold uppercase">Uma Offset <span className="text-secondary">Printers</span></Link>
-          <Link href="/" className="text-gray-600 hover:text-primary transition font-medium">← Back to Home</Link>
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-1">
+              <div className="w-4 h-4 rounded-full bg-cmyk-cyan opacity-80"></div>
+              <div className="w-4 h-4 rounded-full bg-cmyk-magenta opacity-80"></div>
+              <div className="w-4 h-4 rounded-full bg-cmyk-yellow opacity-80"></div>
+            </div>
+            <Link href="/" className="text-primary text-2xl font-black uppercase tracking-tighter">Uma Offset <span className="text-cmyk-cyan">Printers</span></Link>
+          </div>
+          <Link href="/" className="text-gray-600 hover:text-primary transition font-bold uppercase text-xs tracking-widest italic">← Back to Press</Link>
         </div>
       </nav>
 
@@ -128,27 +146,45 @@ export default function QuotePage() {
                 <div className="grid grid-cols-2 gap-4">
                   <button 
                     onClick={() => setFinish("gloss")}
-                    className={`p-4 rounded-lg border-2 transition-all font-bold ${finish === 'gloss' ? 'border-secondary bg-secondary/5 text-secondary' : 'border-gray-100 text-gray-400'}`}
+                    className={`p-4 rounded-none border-2 transition-all font-black uppercase tracking-tighter italic ${finish === 'gloss' ? 'border-cmyk-cyan bg-cmyk-cyan/5 text-cmyk-cyan' : 'border-gray-100 text-gray-400'}`}
                   >
                     High Gloss
                   </button>
                   <button 
                     onClick={() => setFinish("matte")}
-                    className={`p-4 rounded-lg border-2 transition-all font-bold ${finish === 'matte' ? 'border-secondary bg-secondary/5 text-secondary' : 'border-gray-100 text-gray-400'}`}
+                    className={`p-4 rounded-none border-2 transition-all font-black uppercase tracking-tighter italic ${finish === 'matte' ? 'border-cmyk-magenta bg-cmyk-magenta/5 text-cmyk-magenta' : 'border-gray-100 text-gray-400'}`}
                   >
                     Premium Matte
                   </button>
                 </div>
               </div>
 
-              {/* Result Display */}
-              <div className="bg-primary text-white p-8 rounded-xl mt-10 relative overflow-hidden">
-                <div className="relative z-10">
-                  <div className="text-blue-200 text-sm uppercase font-bold tracking-widest mb-1">Estimated Project Cost</div>
-                  <div className="text-5xl font-extrabold">${estimate.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
-                  <div className="text-xs text-blue-300 mt-4">*Prices are estimates based on standard CMYK offset. Specialized die-cutting or embossing requires manual review.</div>
+              {/* Pantone Selector */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 uppercase tracking-wider mb-3">Color Profile</label>
+                <div 
+                  onClick={() => setPantone(!pantone)}
+                  className={`p-4 border-2 cursor-pointer transition-all flex items-center justify-between ${pantone ? 'border-pantone bg-pantone/5' : 'border-gray-100 opacity-60'}`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-4 h-4 rounded-full ${pantone ? 'bg-pantone animate-pulse' : 'bg-gray-300'}`}></div>
+                    <span className={`font-black uppercase tracking-tighter italic ${pantone ? 'text-pantone' : 'text-gray-400'}`}>Pantone® (PMS) Spot Color</span>
+                  </div>
+                  <div className={`w-10 h-5 rounded-full relative transition-colors ${pantone ? 'bg-pantone' : 'bg-gray-200'}`}>
+                    <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${pantone ? 'left-6' : 'left-1'}`}></div>
+                  </div>
                 </div>
-                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+                <p className="text-[10px] text-gray-400 mt-2 uppercase font-bold">Note: Required for precise brand logo matching. CMYK is standard for photos/gradients.</p>
+              </div>
+
+              {/* Result Display */}
+              <div className="bg-pantone text-white p-8 rounded-none mt-10 relative overflow-hidden shadow-2xl shadow-pantone/30">
+                <div className="relative z-10">
+                  <div className="text-white/80 text-sm uppercase font-black tracking-widest mb-1 italic">Estimated Project Cost // PRE-PRESS_EST</div>
+                  <div className="text-6xl font-black tracking-tighter italic">${estimate.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                  <div className="text-[10px] text-white/60 mt-4 uppercase font-bold tracking-tight">*Prices are estimates. Final prepress audit required for ink density & plate count.</div>
+                </div>
+                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
               </div>
             </div>
           </div>
