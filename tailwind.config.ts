@@ -29,6 +29,14 @@ export default {
           DEFAULT: "#ff5f1f", // Safety/Pantone Orange for highlights
         },
       },
+      keyframes: {
+        shimmer: {
+          "100%": { transform: "translateX(200%)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 3s infinite",
+      },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
       },

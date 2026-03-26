@@ -52,8 +52,14 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-none bg-cmyk-cyan/20 border border-cmyk-cyan/30 text-cmyk-cyan text-sm font-bold tracking-widest uppercase italic">
-              Industrial Scale // Precision CMYK
+            <div className="relative inline-block px-4 py-1.5 mb-6 rounded-none bg-white border border-white/50 overflow-hidden group">
+              {/* The "Shooting Star" Highlight Layer */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/90 to-transparent -translate-x-full animate-shimmer skew-x-[-20deg]"></div>
+
+              {/* The Static Black Text */}
+              <span className="relative z-10 text-black text-sm font-bold tracking-widest uppercase italic">
+                Industrial Scale // Precision CMYK
+              </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white uppercase italic tracking-tighter">
               Precision Offset <span className="text-cmyk-cyan drop-shadow-[0_0_15px_rgba(0,174,239,0.3)]">In Motion.</span>
