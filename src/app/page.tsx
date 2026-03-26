@@ -28,7 +28,7 @@ export default function Home() {
               <Link href="/" className="text-primary font-medium hover:text-cmyk-cyan transition">Home</Link>
               <Link href="#services" className="text-gray-600 font-medium hover:text-cmyk-cyan transition">Services</Link>
               <Link href="#industries" className="text-gray-600 font-medium hover:text-cmyk-cyan transition">Industries</Link>
-              <Link href="/quote" className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition">Get Quote</Link>
+              <Link href="/quote" className="bg-primary text-black px-6 py-2 rounded-md hover:bg-primary-dark transition">Get Quote</Link>
             </div>
           </div>
         </div>
