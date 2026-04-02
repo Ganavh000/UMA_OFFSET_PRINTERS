@@ -247,7 +247,7 @@ export default function Home() {
                   <p className="text-xs text-gray-400">Marketing Director, TechSolutions</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"The color matching at Uma Offset Printers is phenomenal. We've done several high-volume runs for our annual catalogs, and the precision is consistent every single time."</p>
+              <p className="text-gray-600 italic">&quot;The color matching at Uma Offset Printers is phenomenal. We&apos;ve done several high-volume runs for our annual catalogs, and the precision is consistent every single time.&quot;</p>
             </div>
 
             {/* Review 2 */}
@@ -262,7 +262,7 @@ export default function Home() {
                   <p className="text-xs text-gray-400">Founder, Bloom Publishing</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"Fastest turnaround we've experienced in the industry. They handled a 50,000 unit book print with specialized embossing in record time. Highly recommended for bulk runs."</p>
+              <p className="text-gray-600 italic">&quot;Fastest turnaround we&apos;ve experienced in the industry. They handled a 50,000 unit book print with specialized embossing in record time. Highly recommended for bulk runs.&quot;</p>
             </div>
 
             {/* Review 3 */}
@@ -277,7 +277,69 @@ export default function Home() {
                   <p className="text-xs text-gray-400">CEO, Patel Beverages</p>
                 </div>
               </div>
-              <p className="text-gray-600 italic">"The die-cutting and packaging quality is world-class. Uma Offset Printers helped us redesign our product boxes, and the final result boosted our shelf presence significantly."</p>
+              <p className="text-gray-600 italic">&quot;The die-cutting and packaging quality is world-class. Uma Offset Printers helped us redesign our product boxes, and the final result boosted our shelf presence significantly.&quot;</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Brochure Services Section */}
+      <section id="brochure-services" className="py-24 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-primary text-sm font-bold tracking-[0.3em] uppercase">Best Quality</p>
+            <h2 className="text-3xl md:text-5xl font-black text-primary mt-3 uppercase tracking-tight">
+              Printing & <span className="text-cmyk-cyan">Designing</span>
+            </h2>
+            <p className="text-2xl md:text-3xl text-primary-dark mt-4 font-semibold uppercase">Made Affordable</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="rounded-2xl border border-gray-200 p-8 bg-gray-50">
+              <h3 className="text-2xl font-black text-primary mb-5 uppercase">Our Services</h3>
+              <ul className="space-y-2 text-gray-700 font-medium">
+                {[
+                  "Visiting cards",
+                  "Bill Books",
+                  "Letterpad",
+                  "Memo pad",
+                  "Invoice",
+                  "Bit Notice (Pamphlets)",
+                  "Rubber Stamp",
+                  "Wedding Invitations",
+                  "Calenders",
+                ].map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-cmyk-magenta">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 p-8 bg-gray-50">
+              <h3 className="text-2xl font-black text-primary mb-5 uppercase">Specialized Services</h3>
+              <ul className="space-y-2 text-gray-700 font-medium">
+                {["ID Cards", "Stickers", "Lamination", "Voucher"].map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-cmyk-cyan">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 p-8 bg-gray-50">
+              <h3 className="text-2xl font-black text-primary mb-5 uppercase">Printing Types</h3>
+              <ul className="space-y-2 text-gray-700 font-medium">
+                {["Offset", "Screen Printing", "Digital Printing"].map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-cmyk-yellow">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -303,8 +365,8 @@ export default function Home() {
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary">Our Facility</h4>
-                    <p className="text-gray-600">No 3, Green Court, 173,<br />Perumbakkam Main Rd, Medavakkam,<br />Chennai, Tamil Nadu 600100</p>
+                    <h4 className="font-bold text-primary">Head Office</h4>
+                    <p className="text-gray-600">No. 3/173, Perumbakkam Main Road,<br />Medavakkam, Chennai - 600 100</p>
                   </div>
                 </div>
 
@@ -313,8 +375,8 @@ export default function Home() {
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary">Contact Details</h4>
-                    <p className="text-gray-600">Phone: 098405 92237<br />Email: hello@umaoffset.com</p>
+                    <h4 className="font-bold text-primary">Printing Unit</h4>
+                    <p className="text-gray-600">4/518, Thiruvenkadam Street,<br />Pudhu Nagar, Jalladianpet,<br />Chennai - 600 100</p>
                   </div>
                 </div>
 
@@ -323,8 +385,8 @@ export default function Home() {
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary">Operating Hours</h4>
-                    <p className="text-gray-600">Mon - Sat: 08:00 AM - 09:00 PM<br />Digital Quotes: 24/7 Online Support</p>
+                    <h4 className="font-bold text-primary">Phone Numbers</h4>
+                    <p className="text-gray-600">Head Office: 98405 92237<br />Printing Unit: 97898 70808</p>
                   </div>
                 </div>
               </div>
